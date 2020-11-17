@@ -20,7 +20,7 @@ class EquipmentController < ApplicationController
   def update
     @equipment = Equipment.find(params[:id])
     @equipment.update(equipment_params)
-    if @equipment.save
+    if @equipment.save!
       redirect_to equipment_path(@equipment)
     else
       render :new
