@@ -23,8 +23,12 @@
         <i class="fas fa-running"></i>
       </div>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Create account</a>
-        <a class="dropdown-item" href="#">Login</a>
+        <!-- <a class="dropdown-item" href="#">Create account</a> -->
+        <%= link_to "Create account", new_user_registration_path %>
+       <!--  <a class="dropdown-item" href="#">Login</a>
+ -->        <%= link_to "Login", user_session_path %>
+        <!-- <a class="dropdown-item" href="#">Log out</a> -->
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </div>
     </button>
 
