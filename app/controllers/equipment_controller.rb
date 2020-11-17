@@ -35,16 +35,10 @@ class EquipmentController < ApplicationController
       render :new
     end
   end
-
-  private
-
-  def equipment_params
-    params.require(:equipment).permit(:name, :description, :category, :price, :location)
-  end
-
-  private
-
-  def equipment_params
-    params.require(:equipment).permit(:name, :description, :price)
-  end
 end
+
+  private
+
+  def equipment_params
+    params.require(:equipment).permit(:name, :description,:price, :location)
+  end

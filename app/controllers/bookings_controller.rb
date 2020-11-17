@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find_by(params[:id])
+    @booking = Booking.find(params[:id])
   end
 
   def new
@@ -14,14 +14,18 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @equipment = Equipment.find(params[:equipment_id])
     @booking.equipment = @equipment
-    if @booking.save
+    @booking.user = current_user
+    if @booking.save!
       redirect_to equipment_path(@equipment)
     else
       render :new
+    end
   end
 
   def update
+
   end
 
   private
