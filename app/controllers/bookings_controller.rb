@@ -27,10 +27,4 @@ class BookingsController < ApplicationController
   def update
 
   end
-
-  private
-
-  def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
-  end
 end

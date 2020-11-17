@@ -40,5 +40,11 @@ end
   private
 
   def equipment_params
+<<<<<<< HEAD
     params.require(:equipment).permit(:name, :description,:price, :location)
   end
+=======
+    params.require(:equipment).permit(:name, :description, :category, :price, :location)
+  end
+end
+>>>>>>> master
