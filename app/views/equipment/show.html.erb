@@ -6,4 +6,5 @@
 
 <%= link_to "Return", equipment_index_path %>
 <%= link_to "Edit equipment", edit_equipment_path(@equipment)  %>
+<%= link_to "Delete equipment", equipment_path(@equipment), method: :delete, data: { confirm: "Are you sure?"}%>
 <%= link_to "Book equipment", new_equipment_booking_path(@equipment)  %>
