@@ -1,0 +1,8 @@
+<h1><%= @equipment.name %> <%="(£#{@equipment.price})"%></h1>
+<p><%= @equipment.description %></p>
+<p><%="Uploaded by: #{@equipment.user.first_name} #{@equipment.user.last_name} "%></p>
+<p><%="Location: #{@equipment.location}" %></p>
+<p><%="Category: #{@equipment.category}" %></p>
+
+<%= link_to "Return", equipment_index_path %>
+<%= link_to "Book equipment", new_equipment_booking_path(@equipment)  %>
