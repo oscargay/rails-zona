@@ -4,6 +4,7 @@
   <% @bookings_tocheck.each do |booking|  %>
   <li><%= booking.start_date %> || <%= booking.end_date %> || <%= booking.status%></li>
   <h3><%=link_to booking.equipment.name, booking_path(booking)%></h3>
+  <%= link_to_if(booking.status == "Pending", "Accept booking", booking_path(booking, :booking => { status: "Accepted" }), :method => :put, :confirm => "Sure?", class: "btn btn-success"){} %> <%= link_to_if(booking.status == "Pending","Decline booking", booking_path(booking, :booking => { status: "Declined" }), :method => :put, :confirm => "Sure?", class: "btn btn-danger"){} %>
   <% end %>
 </ol>
 
