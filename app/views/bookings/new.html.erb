@@ -1,0 +1,7 @@
+<%= simple_form_for [@equipment, @booking] do |f| %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to "Back to Equipment", equipment_path(equipment) %>

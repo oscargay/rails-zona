@@ -8,11 +8,25 @@ class BookingsController < ApplicationController
   end
 
   def new
+    # /equipments/:equipment_id/bookings/new
+    @booking = Booking.new
   end
 
   def create
+    @booking = Booking.new(booking_params)
+    @booking.equipment = @equipment
+    if @booking.save
+      redirect_to equipment_path(@equipment)
+    else
+      render :new
   end
 
   def update
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
