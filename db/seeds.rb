@@ -5,11 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create! :first_name => 'John', :last_name => 'Doe', :email => 'johndoe123@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
 
+user = User.create! :first_name => 'Steve', :last_name => 'Jobs', :email => 'steve_jobs@apple.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+
+Equipment.destroy_all
 
 5.times do
-  equipment = Equipment.new(name: "Bike", description: "Nice bike!", price: 5)
+  equipment = Equipment.new(name: "Bike", description: "Nice bike!", price: 5, location: "London", category: "Outdoor Sport")
   equipment.user_id = user.id
   equipment.save!
 end
