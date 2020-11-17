@@ -25,6 +25,5 @@ class BookingsController < ApplicationController
   end
 
   def update
-
   end
 end
