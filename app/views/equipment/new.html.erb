@@ -1,0 +1,12 @@
+<h1>Create new equipment</h1>
+<%= simple_form_for(@equipment) do |f| %>
+    <%= f.input :name, placeholder: "Name" %>
+    <%= f.input :description, placeholder: "Description" %>
+    <%= f.input :price, placeholder: "Price" %>
+
+
+    <div class="submit-button">
+      <%= f.button :submit, "+ Create new equipment" %>
+    </div>
+
+  <% end %>
