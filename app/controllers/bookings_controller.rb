@@ -26,18 +26,18 @@ class BookingsController < ApplicationController
   end
 
   def update
-    # @booking = Booking.find(params[:id])
-    # @booking.update(booking_params)
-    # if @booking.save!
-    #   redirect_to equipment_path(@equipment)
-    # else
-    #   render :new
-    # end
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    if @booking.save!
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end
