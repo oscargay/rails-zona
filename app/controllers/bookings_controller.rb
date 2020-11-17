@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @bookings = current_user.bookings
-    @bookings_tocheck = Booking.joins(:equipment).where(equipments:{user: current_user})
+    @bookings_tocheck = Booking.joins(:equipment).where(equipment: { user: current_user })
   end
 
   def show
@@ -26,13 +26,13 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:id])
-    @booking.update(booking_params)
-    if @booking.save!
-      redirect_to equipment_path(@equipment)
-    else
-      render :new
-    end
+    # @booking = Booking.find(params[:id])
+    # @booking.update(booking_params)
+    # if @booking.save!
+    #   redirect_to equipment_path(@equipment)
+    # else
+    #   render :new
+    # end
   end
 
   private

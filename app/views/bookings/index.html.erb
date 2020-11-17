@@ -14,7 +14,7 @@
 <ol>
   <% @bookings.each do |booking|  %>
   <li><%= booking.start_date %> || <%= booking.end_date %> || <%= booking.status%></li>
-  <h3><%=link_to booking.equipment.name, booking_path(booking)%></h3>
+  <h3><%= booking.equipment.name%></h3>
   <% end %>
 </ol>
 
