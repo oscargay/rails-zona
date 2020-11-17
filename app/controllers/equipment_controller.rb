@@ -42,3 +42,6 @@ class EquipmentController < ApplicationController
     params.require(:equipment).permit(:name, :description, :category, :price, :location)
   end
 end
+
+
+
