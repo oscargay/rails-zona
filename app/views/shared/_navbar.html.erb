@@ -1,14 +1,14 @@
-<div class="navbar">
+<div class="navbar" id="black-color">
   <%= link_to root_path, class: "header-logo" do %>
     <h3>Zona<span><i class="fas fa-golf-ball"></i></span>com</h3>
-    <p>sport equipment when you need it</p>
+    <p>sport equipment</p>
   <% end %>
   <div class="navbar-links">
     <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
+      <div class="search-form-control form-group search-window">
         <input class="form-control string required" type="text" name="search[query]" id="search_query" />
         <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i>
+          <i class="fas fa-search" id="search-glass"></i>
         </button>
       </div>
     <% end %>
@@ -26,9 +26,9 @@
         <!-- <a class="dropdown-item" href="#">Create account</a> -->
         <%= link_to "Create account", new_user_registration_path %>
        <!--  <a class="dropdown-item" href="#">Login</a>
- -->        <%= link_to "Login", user_session_path %>
+ -->    <%= link_to "Login", user_session_path %>
         <!-- <a class="dropdown-item" href="#">Log out</a> -->
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </button>
 
