@@ -1,5 +1,10 @@
 <h1>Equipment Near You</h1>
 
 <% @equipments.each do |equipment| %>
-  <p> <%= equipment.name  %> <%= "(£#{equipment.price})"  %> <%= "Uploaded by #{equipment.user.first_name}"  %> </p>
+  <%= link_to equipment_path(equipment) do %>
+    <p> <%= equipment.name  %> <%= "(£#{equipment.price})"  %> <%= "Uploaded by #{equipment.user.first_name}"  %> </p>
+  <% end %>
 <% end %>
+
+
+<%= link_to "+Create new equipment", new_equipment_path %>
