@@ -1,15 +1,50 @@
 <h1>Equipment Near You</h1>
-
-<% @equipments.each do |equipment| %>
-  <%= link_to equipment_path(equipment) do %>
-    <p> <%= equipment.name  %> <%= "(£#{equipment.price})"  %> <%= "Uploaded by #{equipment.user.first_name}"  %> </p>
-  <% end %>
-<% end %>
-
-
 <%= link_to "+Create new equipment", new_equipment_path %>
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
+
+
+<div class="main-container">
+  <div class="row">
+    <div class="col-lg-7">
+      <div class="cards-equipment">
+
+      <div class="equipment-categories">
+        <%= cl_image_tag("rdzsifgnzxqpdzmrnvqz", width: 60, height: 60, crop: :fill) %>
+        <%= cl_image_tag("lgvsilnnvawggycfmfic", width: 60, height: 60, crop: :fill) %>
+        <%= cl_image_tag("zc1dddfvehfvajby6k2l", width: 60, height: 60, crop: :fill) %>
+        <%= cl_image_tag("y9zrpzv7pwx7q5whoqez", width: 60, height: 60, crop: :fill) %>
+        <%= cl_image_tag("u8uexmnhmdau477cmnb2", width: 60, height: 60, crop: :fill) %>
+      </div>
+
+      <% @equipments.each do |equipment| %>
+        <div class="card-equipment">
+          <%= cl_image_tag("vhfgpfyz8o8oi9qg6a5d", width: 180, height: 180, crop: :fill) %>
+          <div class="card-equipment-infos">
+            <%= link_to equipment_path(equipment) do %>
+              <p><%= "#{equipment.category} in #{equipment.location}" %></p>
+              <h3><%= equipment.name %></h3>
+              <p><%= equipment.description %></p>
+              <p><%= "£#{equipment.price}/day"  %></p>
+            <% end %>
+          </div>
+
+          <button class="submit-button">Rent now!</button>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div id="map"
+      style="width: 100%; height: 100vh;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+  </div>
+
+
+</div>
+

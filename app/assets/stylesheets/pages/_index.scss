@@ -1,8 +1,16 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "equipment_show";
+
+
+@import "equipments";
+
 @import "equipment_new";
+
+
+@import "equipment_show";
+
 
 body {
   background-color: #F6F5F5;
 }
+
