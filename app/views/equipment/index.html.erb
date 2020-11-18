@@ -17,17 +17,20 @@
 
       <% @equipments.each do |equipment| %>
         <div class="card-equipment">
-          <%= cl_image_tag("vhfgpfyz8o8oi9qg6a5d", width: 180, height: 180, crop: :fill) %>
+          <div class="card-equipment-image">
+            <%= cl_image_tag("vhfgpfyz8o8oi9qg6a5d", width: 280, height: 180, crop: :fill) %>
+          </div>
           <div class="card-equipment-infos">
             <%= link_to equipment_path(equipment) do %>
               <p><%= "#{equipment.category} in #{equipment.location}" %></p>
               <h3><%= equipment.name %></h3>
               <p><%= equipment.description %></p>
-              <p><%= "£#{equipment.price}/day"  %></p>
+              <div class="card-center">
+                <p><%= "£#{equipment.price}/day"  %></p>
+                <p><%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button" %></p>
+              </div>
             <% end %>
           </div>
-
-          <button class="submit-button">Rent now!</button>
         </div>
 
       <% end %>
