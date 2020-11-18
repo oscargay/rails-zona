@@ -1,5 +1,15 @@
-<%= simple_form_for [@equipment, @booking], url: equipment_bookings_path do |f| %>
-  <%= f.input :start_date, as: :date %>
-  <%= f.input :end_date, as: :date %>
-  <%= f.submit class: 'btn btn-primary' %>
-<% end %>
+<div class="container d-flex justify-content-center">
+  <div class="row d-flex justify-content-center p-5 shadow-sm bg-white form-card">
+    <div class="col-8 new-form">
+      <h1 class="text-center mb-4">Book piece of equipment</h1>
+      <hr align="left" width="15%" class="orange-title-bar mb-3">
+       <%= simple_form_for [@equipment, @booking], url: equipment_bookings_path do |f| %>
+         <%= f.input :start_date, as: :date %>
+         <%= f.input :end_date, as: :date %>
+          <div class="submit-button text-center new-form-submit-button">
+            <%= f.button :submit, "Book now!" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
