@@ -1,0 +1,71 @@
+.container-1 {
+  background-color: white;
+  width: 640px;
+  height: 432px;
+  left: 359px;
+  top: 182px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.eq-name-reviews {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between
+}
+
+.equipment-image {
+width: 246px;
+height: 150px;
+left: 372px;
+top: 232px;
+border-radius: 20px;
+}
+
+
+.uploaded-by {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-left: 10px;
+
+  p {
+    margin: 0px;
+    text-align: center;
+  }
+}
+
+.wrapper-1 {
+  display: flex;
+  padding: 10px;
+  width: 100%;
+}
+
+.wrapper-name-description {
+   display: flex;
+   flex-direction: column;
+   margin-right: 10px;
+   margin-left: 20px;
+   width: 100%;
+}
+
+.wrapper-2 {
+  display: flex;
+  padding: 10px;
+}
+
+.equipment-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
