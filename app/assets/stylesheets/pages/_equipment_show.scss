@@ -1,4 +1,4 @@
-.container {
+.container-1 {
   background-color: white;
   width: 640px;
   height: 432px;
@@ -11,6 +11,8 @@
 .eq-name-reviews {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: space-between
 }
 
 .equipment-image {
@@ -26,17 +28,26 @@ border-radius: 20px;
   display: flex;
   flex-direction: row;
   padding-top: 10px;
+  padding-left: 10px;
+
+  p {
+    margin: 0px;
+    text-align: center;
+  }
 }
 
 .wrapper-1 {
   display: flex;
   padding: 10px;
+  width: 100%;
 }
 
 .wrapper-name-description {
    display: flex;
    flex-direction: column;
    margin-right: 10px;
+   margin-left: 20px;
+   width: 100%;
 }
 
 .wrapper-2 {
@@ -48,4 +59,13 @@ border-radius: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-left: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }

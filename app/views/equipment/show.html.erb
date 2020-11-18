@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container-1 container">
 
   <div class="uploaded-by">
     <%= image_tag "Gopro.png", class:"equipment-image", class:"avatar"%>
@@ -40,9 +40,9 @@
   </div>
 
   <div class="buttons">
-  <%= link_to "Back", equipment_index_path %>
-  <%= link_to "Edit equipment", edit_equipment_path(@equipment)  %>
-  <%= link_to "Delete equipment", equipment_path(@equipment), method: :delete, data: { confirm: "Are you sure?"}%>
-  <%= link_to "Book Now!", new_equipment_booking_path(@equipment)  %>
+  <p><%= link_to "Back", equipment_index_path %></p>
+  <!-- <p><%= link_to "Edit equipment", edit_equipment_path(@equipment)%></p>
+  <p><%= link_to "Delete equipment", equipment_path(@equipment), method: :delete, data: { confirm: "Are you sure?"}%></p> -->
+  <p><%= link_to "Book Now!", new_equipment_booking_path(@equipment), class:"btn submit-button" %></p>
   </div>
 </div>
