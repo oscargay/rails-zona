@@ -2,6 +2,14 @@ class EquipmentController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
   def index
     @equipments = Equipment.all
+
+    @markers = @equipments.geocoded.map do |equipment|
+      {
+        lat: equipment.latitude,
+        lng: equipment.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { equipment: equipment })
+      }
+    end
   end
 
   def show
