@@ -1,0 +1,10 @@
+<h1>Booking by <%=@booking.user.first_name%></h1>
+
+<ul>
+  <li><%= @booking.start_date %> || <%= @booking.end_date %> || <%= @booking.status%></li>
+  <h3><%= @booking.equipment.name%></h3>
+  <p><%=@booking.equipment.description%></p>
+  <p><%=@booking.equipment.category%> || <%=@booking.equipment.location%></p>
+</ul>
+
+<%= link_to "Back to Bookings", bookings_path %>
