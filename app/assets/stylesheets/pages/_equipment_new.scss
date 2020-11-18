@@ -1,0 +1,20 @@
+.new-form {
+  position: relative;
+}
+
+.orange-title-bar {
+  background-color: #EE6F57;
+  height: 5px;
+  position: absolute;
+  left: 120px;
+  top: 35px;
+}
+
+.new-form {
+  .btn {
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+}

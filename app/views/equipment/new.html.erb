@@ -1,14 +1,20 @@
-<h1>Create new equipment</h1>
-<%= simple_form_for(@equipment) do |f| %>
-    <%= f.input :name, placeholder: "Name" %>
-    <%= f.input :description, placeholder: "Description" %>
-    <%= f.input :category, placeholder: "Category" %>
-    <%= f.input :location, placeholder: "Location" %>
-    <%= f.input :price, placeholder: "Price" %>
+<div class="container">
+  <div class="row d-flex justify-content-center p-5 shadow-sm rounded-lg bg-white">
+    <div class="col-8 new-form">
+      <h1 class="text-center mb-4">Add a piece of equipment</h1>
+      <hr align="left" width="15%" class="orange-title-bar mb-3">
+        <%= simple_form_for(@equipment) do |f| %>
+          <%= f.input :name, placeholder: "Name" %>
+          <%= f.input :description, placeholder: "Description" %>
+          <%= f.input :category, placeholder: "Category" %>
+          <%= f.input :location, placeholder: "Location" %>
+          <%= f.input :price, placeholder: "Price" %>
 
+          <div class="submit-button text-center new-form-submit-button">
+            <%= f.button :submit, "Add now!" %>
+          </div>
 
-    <div class="submit-button">
-      <%= f.button :submit, "+ Create new equipment" %>
+        <% end %>
     </div>
-
-  <% end %>
+  </div>
+</div>
