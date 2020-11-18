@@ -16,19 +16,22 @@
 
 
   <div class="navbar-login dropdown">
-    <%= link_to "equipment", equipment_index_path %>
-    <%= link_to "contact", root_path(anchor: 'footer') %>
+
+    <%= link_to "Equipment", root_path %>
+    <%= link_to "Contact", root_path(anchor: 'footer') %>
     <button>
       <div class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-running"></i>
       </div>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <!-- <a class="dropdown-item" href="#">Create account</a> -->
-        <%= link_to "Create account", new_user_registration_path %>
-       <!--  <a class="dropdown-item" href="#">Login</a>
- -->    <%= link_to "Login", user_session_path %>
-        <!-- <a class="dropdown-item" href="#">Log out</a> -->
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        <% if user_signed_in? %>
+          <%= link_to "Your bookings", bookings_path %>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% else %>
+          <%= link_to "Create account", new_user_registration_path %>
+          <%= link_to "Login", user_session_path %>
+        <% end %>
       </div>
     </button>
 
