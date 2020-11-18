@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  height: 70px;
+  font-size: 1.125vw;
+  margin-left: 7.31383%;
+  margin-right: 7.31383%;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  align-items: center;
+  border-top: 1px solid #155374;
+}
+
+.link-left {
+  display: flex;
+
+  a {
+    padding-left: 2.2%;
+  }
+  div {
+    min-width: 220px;
+  }
+}
+
+.social-media-links {
+  display: flex;
+  overflow: hidden;
+
+  a > i {
+    margin-right: 10px;
+    opacity: .8;
+  }
+}
+
+.wrapper {
+  min-height: calc(100vh - 148px);
+}
+
+
