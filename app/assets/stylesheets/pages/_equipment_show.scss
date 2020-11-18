@@ -1,0 +1,50 @@
+.container {
+  background-color: white;
+  width: 640px;
+  height: 432px;
+  left: 359px;
+  top: 182px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.eq-name-reviews {
+  display: flex;
+  flex-direction: row;
+}
+
+.equipment-image {
+width: 246px;
+height: 150px;
+left: 372px;
+top: 232px;
+border-radius: 20px;
+}
+
+
+.uploaded-by {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+}
+
+.wrapper-1 {
+  display: flex;
+  padding: 10px;
+}
+
+.wrapper-name-description {
+   display: flex;
+   flex-direction: column;
+}
+
+.wrapper-2 {
+  display: flex;
+  padding: 10px;
+}
+
+.equipment-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

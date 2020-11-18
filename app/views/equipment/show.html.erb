@@ -1,10 +1,48 @@
-<h1><%= @equipment.name %> <%="(£#{@equipment.price})"%></h1>
-<p><%= @equipment.description %></p>
-<p><%="Uploaded by: #{@equipment.user.first_name} #{@equipment.user.last_name} "%></p>
-<p><%="Location: #{@equipment.location}" %></p>
-<p><%="Category: #{@equipment.category}" %></p>
 
-<%= link_to "Return", equipment_index_path %>
-<%= link_to "Edit equipment", edit_equipment_path(@equipment)  %>
-<%= link_to "Delete equipment", equipment_path(@equipment), method: :delete, data: { confirm: "Are you sure?"}%>
-<%= link_to "Book equipment", new_equipment_booking_path(@equipment)  %>
+<div class="container">
+
+  <div class="uploaded-by">
+    <%= image_tag "Gopro.png", class:"equipment-image", class:"avatar"%>
+    <p><%="#{@equipment.user.first_name} #{@equipment.user.last_name}"%></p>
+  </div>
+
+  <div class="wrapper-1">
+    <%= image_tag "Gopro.png", class:"equipment-image"%>
+
+    <div class="wrapper-name-description">
+      <div class="eq-name-reviews">
+        <h1><%= @equipment.name %></h1>
+        <h4><%="⭐️⭐️⭐️⭐️"%></h4>
+      </div>
+      <div class="eq-description">
+        <p><%= @equipment.description %></p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="wrapper-2">
+    <%= image_tag "Gopro.png", class:"equipment-image"%>
+    <div class="equipment-info">
+      <div class="location">
+        <p>Location</p>
+        <p><%= "#{@equipment.location}"%></p>
+    </div>
+      <div class="category">
+        <p>Category</p>
+        <p><%= @equipment.category %>
+      </div>
+      <div class="price">
+        <p>Price</p>
+        <p><%="£#{@equipment.price}"%></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+  <%= link_to "Back", equipment_index_path %>
+  <%= link_to "Edit equipment", edit_equipment_path(@equipment)  %>
+  <%= link_to "Delete equipment", equipment_path(@equipment), method: :delete, data: { confirm: "Are you sure?"}%>
+  <%= link_to "Book Now!", new_equipment_booking_path(@equipment)  %>
+  </div>
+</div>
