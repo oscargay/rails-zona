@@ -1,6 +1,3 @@
-<h1>Equipment Near You</h1>
-<%= link_to "+Create new equipment", new_equipment_path %>
-
 
 
 
@@ -10,12 +7,12 @@
     <div class="col-lg-7">
       <div class="cards-equipment">
 
-      <div class="equipment-categories">
-        <%= cl_image_tag("rdzsifgnzxqpdzmrnvqz", width: 60, height: 60, crop: :fill) %>
-        <%= cl_image_tag("lgvsilnnvawggycfmfic", width: 60, height: 60, crop: :fill) %>
-        <%= cl_image_tag("zc1dddfvehfvajby6k2l", width: 60, height: 60, crop: :fill) %>
-        <%= cl_image_tag("y9zrpzv7pwx7q5whoqez", width: 60, height: 60, crop: :fill) %>
-        <%= cl_image_tag("u8uexmnhmdau477cmnb2", width: 60, height: 60, crop: :fill) %>
+      <div class="equipment-categories avatar-big">
+        <%= cl_image_tag("rdzsifgnzxqpdzmrnvqz", width: 80, height: 80, crop: :fill) %>
+        <%= cl_image_tag("lgvsilnnvawggycfmfic", width: 80, height: 80, crop: :fill) %>
+        <%= cl_image_tag("zc1dddfvehfvajby6k2l", width: 80, height: 80, crop: :fill) %>
+        <%= cl_image_tag("y9zrpzv7pwx7q5whoqez", width: 80, height: 80, crop: :fill) %>
+        <%= cl_image_tag("u8uexmnhmdau477cmnb2", width: 80, height: 80, crop: :fill) %>
       </div>
 
       <% @equipments.each do |equipment| %>
