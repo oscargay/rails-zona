@@ -1,10 +1,13 @@
 .cards-equipment {
-
+  border-top: 1px solid #EE6F57;
+  padding-top: 3%;
 }
 
 .card-equipment {
   height: 200px;
   display: flex;
   background-color: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-top: 3%;
+  border-radius: 8px;
 }
