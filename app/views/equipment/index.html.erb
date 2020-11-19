@@ -38,7 +38,7 @@
               <p><%="⭐️" * @review_tally.round%></p>
               <div class="card-center">
                 <p><%= "£#{equipment.price}/day"  %></p>
-                <p><%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button" %></p>
+                <p><%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button" unless equipment.user == current_user %></p>
               </div>
             <% end %>
           </div>

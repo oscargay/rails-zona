@@ -45,16 +45,19 @@
   </div>
 
   <div class="buttons">
-  <p><%= link_to "Back", equipment_index_path %></p>
-  <p><%= link_to "Edit equipment", edit_equipment_path(@equipment)%></p>
-  <p><%= link_to "Delete equipment", equipment_path(@equipment), method: :delete, data: { confirm: "Are you sure?"}%></p>
-  <p><%= link_to "Book Now!", new_equipment_booking_path(@equipment), class:"btn submit-button" %></p>
+    <% if @equipment.user == current_user %>
+        <p><%= link_to "Back", equipment_index_path %></p>
+        <p><%= link_to "Edit equipment", edit_equipment_path(@equipment)%></p>
+        <p><%= link_to "Delete equipment", equipment_path(@equipment), method: :delete, data: { confirm: "Are you sure?"}%></p>
+        <% else %>
+          <p><%= link_to "Book Now!", new_equipment_booking_path(@equipment), class:"btn submit-button" %></p>
+    <% end %>
   </div>
 
-  <p><%= link_to "Leave a review", new_equipment_review_path(@equipment)%></p>
+  <p><%= link_to "Leave a review", new_equipment_review_path(@equipment) unless @equipment.user == current_user%></p>
   <ul class="list-group">
   <% @equipment.reviews.each do |review| %>
-    <li class="list-group-item"><%= "⭐️"*review.rating%>  <%= review.content%> <%= link_to "Remove", review_path(review), method: :delete, data: {confirm: "Are you sure?"} %></li>
+    <li class="list-group-item"><%= "⭐️"*review.rating%>  <%= review.content%> <%= link_to "Remove", review_path(review), method: :delete, data: {confirm: "Are you sure?"} if @equipment.user == current_user %></li>
   <% end %>
 </ul>
 </div>
