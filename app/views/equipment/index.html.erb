@@ -25,6 +25,12 @@
               <p><%= "#{equipment.category} in #{equipment.location}" %></p>
               <h3><%= equipment.name %></h3>
               <p><%= equipment.description %></p>
+              <% @review_tally = 0 %>
+              <% equipment.reviews.each do |review| %>
+                <% @review_tally += review.rating %>
+              <% end %>
+              <% @review_tally = (@review_tally / equipment.reviews.count) if equipment.reviews.count >= 1 %>
+              <p><%="⭐️" * @review_tally.round%></p>
               <div class="card-center">
                 <p><%= "£#{equipment.price}/day"  %></p>
                 <p><%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button" %></p>
