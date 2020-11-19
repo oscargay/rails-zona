@@ -8,11 +8,16 @@
       <div class="cards-equipment">
 
       <div class="equipment-categories avatar-big">
-        <%= cl_image_tag("rdzsifgnzxqpdzmrnvqz", width: 80, height: 80, crop: :fill) %>
-        <%= cl_image_tag("lgvsilnnvawggycfmfic", width: 80, height: 80, crop: :fill) %>
-        <%= cl_image_tag("zc1dddfvehfvajby6k2l", width: 80, height: 80, crop: :fill) %>
-        <%= cl_image_tag("y9zrpzv7pwx7q5whoqez", width: 80, height: 80, crop: :fill) %>
-        <%= cl_image_tag("u8uexmnhmdau477cmnb2", width: 80, height: 80, crop: :fill) %>
+        <%#= cl_image_tag("rdzsifgnzxqpdzmrnvqz", width: 80, height: 80, crop: :fill) %>
+        <%#= cl_image_tag("lgvsilnnvawggycfmfic", width: 80, height: 80, crop: :fill) %>
+        <%#= cl_image_tag("zc1dddfvehfvajby6k2l", width: 80, height: 80, crop: :fill) %>
+        <%#= cl_image_tag("y9zrpzv7pwx7q5whoqez", width: 80, height: 80, crop: :fill) %>
+        <%#= cl_image_tag("u8uexmnhmdau477cmnb2", width: 80, height: 80, crop: :fill) %>
+        <% Equipment::CATEGORIES.each do |category| %>
+          <%= link_to equipment_index_path(category: category[:name]) do %>
+            <%= cl_image_tag( category[:key], width: 80, height: 80, crop: :fill) %>
+          <% end %>
+        <% end %>
       </div>
 
       <% @equipments.each do |equipment| %>
