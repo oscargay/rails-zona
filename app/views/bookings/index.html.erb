@@ -1,24 +1,50 @@
 
-<h1>Bookings To Check</h1>
 
-<ol>
-  <% @bookings_tocheck.each do |booking|  %>
-  <li><%= booking.start_date %> || <%= booking.end_date %> || <%= booking.status%></li>
-  <h3><%=link_to booking.equipment.name, booking_path(booking)%></h3>
-  <%= link_to_if(booking.status == "Pending", "Accept booking", booking_path(booking, :booking => { status: "Accepted" }), :method => :put, :confirm => "Sure?", class: "btn btn-success"){} %> <%= link_to_if(booking.status == "Pending","Decline booking", booking_path(booking, :booking => { status: "Declined" }), :method => :put, :confirm => "Sure?", class: "btn btn-danger"){} %>
-  <% end %>
-</ol>
 
-<hr>
+<div class="container">
+  <div class="booking-title">
+    <h1><span>Bookings to Confirm</span></h1>
+</div>
+    <div class="booking-cards row">
+    <% @bookings_tocheck.each do |booking|  %>
+    <div class="col-sm-6 col-lg-4">
+      <div class="booking-card">
+        <h3><%=link_to booking.equipment.name, booking_path(booking)%></h3>
+        <%= image_tag "Gopro.png", class:"equipment-image"%>
+        <div class="booking-dates">
+        <h6> From <%= booking.start_date.strftime("%b %d, %Y") %> to <%= booking.end_date.strftime("%b %d, %Y") %></h6>
+        </div>
+        <div class="booking-confirm">
+        <%= link_to_if(booking.status == "Pending", "Accept booking", booking_path(booking, :booking => { status: "Accepted" }), :method => :put, :confirm => "Sure?", class: "btn btn-success decision-1"){} %> <%= link_to_if(booking.status == "Pending","Decline booking", booking_path(booking, :booking => { status: "Declined" }), :method => :put, :confirm => "Sure?", class: "btn btn-danger decision-2"){} %>
+        </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
 
-<h1>Your Bookings</h1>
+  <hr>
 
-<ol>
-  <% @bookings.each do |booking|  %>
-  <li><%= booking.start_date %> || <%= booking.end_date %> || <%= booking.status%></li>
-  <h3><%= booking.equipment.name%></h3>
-  <% end %>
-</ol>
-
+    <div class="container">
+      <div class="booking-title">
+    <h1><span>Your Bookings</span></h1>
+  </div>
+    <div class="booking-cards row">
+    <% @bookings.each do |booking|  %>
+    <div class=" col-sm-6 col-lg-4">
+      <div class="booking-card">
+        <h3><%= link_to booking.equipment.name, equipment_path(booking.equipment)%></h3>
+        <%= image_tag "Gopro.png", class:"equipment-image"%>
+          <div class="booking-dates">
+            <h6>From: <%= booking.start_date.strftime("%b %d, %Y")  %> to <%= booking.end_date.strftime("%b %d, %Y")  %></h6>
+          </div>
+          <div class="booking-status btn btn-warning">
+            <%= booking.status%>
+          </div>
+      </div>
+    </div>
+    <% end %>
+    </div>
+  </div>
 
 

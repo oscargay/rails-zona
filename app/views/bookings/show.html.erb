@@ -1,10 +1,14 @@
-<h1>Booking by <%=@booking.user.first_name%></h1>
 
-<ul>
-  <li><%= @booking.start_date %> || <%= @booking.end_date %> || <%= @booking.status%></li>
+
+<div class="container">
+  <div class="booking-title">
+    <h1><span>Booked by <%=@booking.user.first_name%></span></h1>
+  </div>
+<%= @booking.start_date %> || <%= @booking.end_date %> || <%= @booking.status%>
   <h3><%= @booking.equipment.name%></h3>
   <p><%=@booking.equipment.description%></p>
   <p><%=@booking.equipment.category%> || <%=@booking.equipment.location%></p>
-</ul>
+</div>
 
 <%= link_to "Back to Bookings", bookings_path %>
+
