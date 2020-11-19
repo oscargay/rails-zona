@@ -4,7 +4,15 @@ class EquipmentController < ApplicationController
     @equipments = Equipment.all
     if params[:category].present?
       @equipments = @equipments.where(category: params[:category])
+
+
+    elsif params[:query].present?
+      @equipments = Equipment.search_by_name_and_location(params[:query])
+    else
+      @equipments = Equipment.all
     end
+
+
 
     @markers = @equipments.geocoded.map do |equipment|
       {
