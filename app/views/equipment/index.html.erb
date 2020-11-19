@@ -7,41 +7,30 @@
 
 
 
-    <div class="col-lg-7">
+    <div class="col-lg-12 col-xl-7">
 
-      <div class="navbar-links">
-    <%= form_tag equipment_index_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control search-form-control search-window",
-        placeholder: "Search..."
-      %>
-    <% end %>
+      <div class="search-form">
+        <%= form_tag equipment_index_path, method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control search-form-control search-window",
+          placeholder: "Search..."
+          %>
+        <% end %>
+      </div>
 
-    <%#= simple_form_for equipment_index_path, method: :get do |f| %>
-      <!-- <div class="search-form-control form-group search-window">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search" id="search-glass"></i>
-        </button>
-      </div> -->
-    <%# end %>
-  </div>
-
-      <div class="cards-equipment">
 
       <div class="equipment-categories avatar-big">
-        <%#= cl_image_tag("rdzsifgnzxqpdzmrnvqz", width: 80, height: 80, crop: :fill) %>
-        <%#= cl_image_tag("lgvsilnnvawggycfmfic", width: 80, height: 80, crop: :fill) %>
-        <%#= cl_image_tag("zc1dddfvehfvajby6k2l", width: 80, height: 80, crop: :fill) %>
-        <%#= cl_image_tag("y9zrpzv7pwx7q5whoqez", width: 80, height: 80, crop: :fill) %>
-        <%#= cl_image_tag("u8uexmnhmdau477cmnb2", width: 80, height: 80, crop: :fill) %>
         <% Equipment::CATEGORIES.each do |category| %>
-          <%= link_to equipment_index_path(category: category[:name]) do %>
-            <%= cl_image_tag( category[:key], width: 80, height: 80, crop: :fill) %>
+
+          <%= link_to equipment_index_path(category: category[:name]), class:"#{'active' if params[:category] == category[:name]}" do %>
+
+              <%= category[:name] %>
           <% end %>
         <% end %>
       </div>
+
+      <div class="cards-equipment">
 
       <% @equipments.each do |equipment| %>
         <div class="card-equipment">
@@ -50,19 +39,29 @@
           </div>
           <div class="card-equipment-infos">
             <%= link_to equipment_path(equipment) do %>
-              <p><%= "#{equipment.category} in #{equipment.location}" %></p>
+            <div class="card-left">
+              <h4><%= "#{equipment.category} in #{equipment.location}" %></h4>
               <h3><%= equipment.name %></h3>
+              <hr>
               <p><%= equipment.description %></p>
+
+              <span class="badge badge-primary"><%= "£#{equipment.price}/day"  %></span>
+
               <% @review_tally = 0 %>
               <% equipment.reviews.each do |review| %>
                 <% @review_tally += review.rating %>
               <% end %>
               <% @review_tally = (@review_tally / equipment.reviews.count) if equipment.reviews.count >= 1 %>
-              <p><%="⭐️" * @review_tally.round%></p>
-              <div class="card-center">
-                <p><%= "£#{equipment.price}/day"  %></p>
-                <p><%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button" unless equipment.user == current_user %></p>
-              </div>
+              <p id="stars"><%="⭐️" * @review_tally.round%></p>
+
+
+            </div>
+            <div class="card-right">
+              <p><%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button" unless equipment.user == current_user %></p>
+            </div>
+
+
+
             <% end %>
           </div>
         </div>
@@ -71,7 +70,7 @@
     </div>
   </div>
 
-  <div class="col-lg-5">
+  <div class="col-lg-12 col-xl-5">
     <div id="map"
       style="width: 100%; height: 100vh;"
       data-markers="<%= @markers.to_json %>"
