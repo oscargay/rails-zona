@@ -12,7 +12,12 @@
     <div class="wrapper-name-description">
       <div class="eq-name-reviews">
         <h1><%= @equipment.name %></h1>
-        <h4><%="⭐️⭐️⭐️⭐️"%></h4>
+        <% @review_tally = 0 %>
+        <% @equipment.reviews.each do |review| %>
+          <% @review_tally += review.rating %>
+        <% end %>
+        <% @review_tally = (@review_tally / @equipment.reviews.count) if @equipment.reviews.count >= 1 %>
+        <h4><%="⭐️" * @review_tally.round%></h4>
       </div>
       <div class="eq-description">
         <p><%= @equipment.description %></p>
@@ -45,4 +50,11 @@
   <p><%= link_to "Delete equipment", equipment_path(@equipment), method: :delete, data: { confirm: "Are you sure?"}%></p>
   <p><%= link_to "Book Now!", new_equipment_booking_path(@equipment), class:"btn submit-button" %></p>
   </div>
+
+  <p><%= link_to "Leave a review", new_equipment_review_path(@equipment)%></p>
+  <ul class="list-group">
+  <% @equipment.reviews.each do |review| %>
+    <li class="list-group-item"><%= "⭐️"*review.rating%>  <%= review.content%> <%= link_to "Remove", review_path(review), method: :delete, data: {confirm: "Are you sure?"} %></li>
+  <% end %>
+</ul>
 </div>
