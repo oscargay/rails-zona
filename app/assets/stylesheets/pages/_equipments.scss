@@ -5,7 +5,34 @@
 }
 
 .equipment-categories {
-  img {
-    margin-right: 8%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+  a {
+    padding: 20px 15px;
+    border: 1px solid $dark-blue;
+    background-color: $light-blue;
+    color: $white;
+    opacity: .8;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  &:hover {
+    opacity: 1;
+
   }
+  }
+}
+
+// search bar
+.search-form {
+  margin-bottom: 8%;
+  width: 60%;
+  form > input {
+    height: 50px;
+    border-radius: 24px;
+    border: 1px solid $light-blue;
+  }
+}
+
+.mapboxgl-ctrl {
+  border-radius: 18px;
 }

@@ -9,7 +9,7 @@ a {
 
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #FFFF;
 }
 
 .navbar-collapse {
@@ -17,16 +17,19 @@ a {
 }
 
 .navbar {
-  margin-left: 7.31383%;
-  margin-right: 7.31383%;
-  margin-top: 3.125vw;
-  margin-bottom: 3.125vw;
-  padding: 0;
+  padding-left: 7.31383%;
+  padding-right: 7.31383%;
+  padding-top: 3.125vw;
+
+  margin-bottom: 1.625vw;
+  background-color: #FFFF;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 // logo
 .header-logo {
   min-width: 200px;
+  color: $dark-blue;
   i {
     font-size: 16px;
     padding: 0 3%;
@@ -48,6 +51,11 @@ h3 {
 
 
 //links
+#dropdown-button {
+  padding: 0;
+  border: none;
+  background-color: #FFFF;
+}
 
 .navbar-login {
   position: relative;
