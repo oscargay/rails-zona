@@ -2,6 +2,9 @@ class EquipmentController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
   def index
     @equipments = Equipment.all
+    if params[:category].present?
+      @equipments = @equipments.where(category: params[:category])
+    end
 
     @markers = @equipments.geocoded.map do |equipment|
       {
