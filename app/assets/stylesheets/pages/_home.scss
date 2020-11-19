@@ -1,1 +1,32 @@
 // Specific CSS for your home-page
+// text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+.home-video-wrapper {
+  height: 100vh;
+  display: flex;
+
+}
+.home-video {
+ width: 100vw;
+ height: 80vh;
+ position: absolute;
+ display: flex;
+ justify-content: center;
+ object-fit: cover;
+ top: 1;
+ z-index: -2;
+ background-color: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+ margin-bottom: 10px;
+}
+
+.btn-landing{
+  border-radius: 20px;
+  background-color: #264653;
+  color: white;
+  border-style: none;
+  height: 50px;
+  width: 100px;
+}
+.btn-landing {
+  background-color: #e76f51;
+}
