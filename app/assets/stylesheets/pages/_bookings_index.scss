@@ -1,0 +1,60 @@
+
+.booking-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: auto;
+}
+
+.booking-card {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin: 3% 5px 5% 5px;
+  border-radius: 8px;
+  padding: 8px;
+  width: 280px;
+  h3 a {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: #00334E;
+  }
+}
+
+.booking-dates {
+  margin-top: 8px;
+
+  h6 {
+    font-family: 'Raleway';
+    color: #145374;
+  }
+}
+ .booking-title {
+  h1{
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color: #00334E;
+  }
+}
+
+.booking-confirm {
+  display: flex;
+}
+
+span {
+  text-decoration: underline;
+  text-decoration-color: #EE6F57;
+
+ }
+
+ .decision-1 {
+
+  margin-right: 2px;
+
+ }
+.decision-2{
+margin-left: 2px;
+}
