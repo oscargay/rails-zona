@@ -6,26 +6,37 @@
 .card-equipment {
   height: 225px;
   display: flex;
+  justify-content: space-between;
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   margin-top: 3%;
   border-radius: 8px;
-
+  padding: 15px;
   width: auto;
   img {
     border-radius: 8px;
-    margin-left: 15px;
   }
 }
 
 .card-equipment-infos {
-  margin-left: 15px;
-  flex-grow: 1;
   display: flex;
-  padding-top: 22.5px;
-  padding-bottom: 22.5px;
   justify-content: space-between;
-  align-items: top;
+  flex-direction: column;
+  align-items: flex-end;
+
+  max-width: 100px;
+
+}
+@media only screen and (min-width: 1400px) {
+  .card-text {
+    width: 250px;
+  }
+}
+
+
+.card-text {
+  // max-width: 280px;
+  margin: 0 15px;
   h3 {
     font-size: 1.2em;
   }
@@ -38,11 +49,6 @@
   }
 }
 
-.card-equipment-infos .btn {
-  position: relative;
-  top: 142px;
-  margin-right: 15px;
-}
 
 .card-equipment-image {
   display: flex;
