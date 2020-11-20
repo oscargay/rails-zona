@@ -108,21 +108,23 @@
               <p class="equipment-description"> <%= @equipment.description %></p>
             </div>
           </div>
-        <div class="container d-flex justify-content-center mt-5">
-          <div class="row d-flex justify-content-center p-5 container-2" id="booking-form">
-            <div class="col-12 content-form" >
-              <h3 class="text-center mb-2">Book now</h3>
-              <hr width="15%" class="orange-title-bar-3 mb-3">
-               <%= simple_form_for [@equipment, @booking] do |f| %>
-                 <%= f.input :start_date, as: :date %>
-                 <%= f.input :end_date, as: :date %>
-                  <div class="submit-button text-center new-form-submit-button">
-                    <%= f.button :submit, "Book now!" %>
-                  </div>
-                <% end %>
+          <% unless @equipment.user == current_user %>
+            <div class="container d-flex justify-content-center mt-5">
+              <div class="row d-flex justify-content-center p-5 container-2" id="booking-form">
+                <div class="col-12 content-form" >
+                  <h3 class="text-center mb-2">Book now</h3>
+                  <hr width="15%" class="orange-title-bar-3 mb-3">
+                   <%= simple_form_for [@equipment, @booking] do |f| %>
+                     <%= f.input :start_date, as: :date %>
+                     <%= f.input :end_date, as: :date %>
+                      <div class="submit-button text-center new-form-submit-button">
+                        <%= f.button :submit, "Book now!" %>
+                      </div>
+                    <% end %>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          <% end %>
         </div>
       </div>
       <div class="col-lg-12 col-xl-4">
