@@ -35,42 +35,43 @@
       <% @equipments.each do |equipment| %>
         <div class="card-equipment">
           <div class="card-equipment-image">
-
-            <%= cl_image_tag(equipment.photos.first.key, width: 280, height: 180, crop: :fill) %>
+            <%= cl_image_tag(equipment.photos.first.key, width: 280, height: 195, crop: :fill) %>
           </div>
-          <div class="card-equipment-infos">
+
+
             <%= link_to equipment_path(equipment) do %>
-            <div class="card-left">
-              <h4><%= "#{equipment.category} in #{equipment.location}" %></h4>
-              <h3><%= equipment.name %></h3>
-              <hr>
-              <p><%= equipment.description %></p>
+              <div class="card-text">
+                <h4><%= "#{equipment.category} in #{equipment.location}" %></h4>
+                <h3><%= equipment.name %></h3>
+                <hr>
+                <p><%= equipment.description %></p>
 
-              <span class="badge badge-primary"><%= "£#{equipment.price}/day"  %></span>
-
-              <% @review_tally = 0 %>
-              <% equipment.reviews.each do |review| %>
-                <% @review_tally += review.rating %>
-              <% end %>
-              <% @review_tally = (@review_tally / equipment.reviews.count) if equipment.reviews.count >= 1 %>
-              <p id="stars">
-               <% @review_tally.round.times do %>
-                 <i class="fas fa-star"></i>
-               <% end %>
-               </p>
-              <!-- *ngFor=@review_tally.round.html_safe -->
-
-            </div>
-            <div class="card-right">
-              <p><%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button" unless equipment.user == current_user %></p>
-            </div>
+                <% @review_tally = 0 %>
+                <% equipment.reviews.each do |review| %>
+                  <% @review_tally += review.rating %>
+                <% end %>
+                <% @review_tally = (@review_tally / equipment.reviews.count) if equipment.reviews.count >= 1 %>
+                <p id="stars">
+                  <% @review_tally.round.times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                </p>
+              </div>
 
 
+              <div class="card-equipment-infos">
+
+                  <span class="badge badge-primary"><%= "£#{equipment.price}/day"  %></span>
+
+
+                  <%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button" unless equipment.user == current_user %>
+
+
+              </div>
 
             <% end %>
-          </div>
-        </div>
 
+        </div>
       <% end %>
     </div>
   </div>
