@@ -181,8 +181,11 @@ border-radius: 20px;
 }
 
 .card-review {
-  height: 50px;
+  min-height: 50px;
+  height: auto;
   display: flex;
+  flex-direction: column;
+  padding: 15px;
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   margin-top: 10%;
@@ -199,13 +202,10 @@ border-radius: 20px;
 
 .review-stars {
   margin: 0;
-  margin-right: 1rem;
-  text-align: right;
 }
 
 .review-content {
   margin: 0;
-  margin-left: 1rem;
 }
 
 
@@ -271,9 +271,15 @@ border-radius: 20px;
 
 #stars {
   flex-grow: 1;
-  text-align: right;
   font-size: 10px;
   margin-right: 8px;
+}
+
+#stars-special {
+  flex-grow: 1;
+  font-size: 8px;
+  margin-right: 24px;
+  text-align: right;
 
 }
 
