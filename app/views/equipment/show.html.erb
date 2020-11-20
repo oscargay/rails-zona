@@ -93,7 +93,11 @@
        <% @review_tally += review.rating %>
      <% end %>
      <% @review_tally = (@review_tally / @equipment.reviews.count) if @equipment.reviews.count >= 1 %>
-     <p class="stars ml-1"><%="⭐️" * @review_tally.round%></p>
+     <p id="stars">
+      <% @review_tally.round.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      </p>
     </div>
      <h1 class="equipment-name"><%= @equipment.name %></h1>
      <h2 class="equipment-price"> <%= "£#{@equipment.price}" %></h2>
