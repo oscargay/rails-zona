@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.equipment = @equipment
     @booking.user = current_user
     if @booking.save!
-      redirect_to equipment_path(@equipment)
+      redirect_to bookings_path
     else
       render :new
     end
@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     if @booking.save!
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path
     else
       render :new
     end
