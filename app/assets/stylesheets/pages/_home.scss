@@ -1,9 +1,8 @@
 // Specific CSS for your home-page
 
 .home-video-wrapper {
-  height: 100vh;
+  // height: 100vh;
   display: flex;
-
 }
 .home-video {
  width: 100vw;
@@ -11,11 +10,12 @@
  position: absolute;
  display: flex;
  justify-content: center;
+ padding-top: 5px;
+ padding-bottom: 10px;
  object-fit: cover;
  top: 0;
  z-index: -2;
  background-color: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1));
- margin-bottom: 10px;
 }
 
 .video-textbox {
