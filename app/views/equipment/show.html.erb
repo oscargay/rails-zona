@@ -140,6 +140,30 @@
       </div>
   </div>
 
+   <div class="equipment-info">
+    <div class="top-bar d-flex">
+     <p class="equipment-category"><%= @equipment.category %></p>
+     <% @review_tally = 0 %>
+     <% @equipment.reviews.each do |review| %>
+       <% @review_tally += review.rating %>
+     <% end %>
+     <% @review_tally = (@review_tally / @equipment.reviews.count) if @equipment.reviews.count >= 1 %>
+     <p id="stars">
+      <% @review_tally.round.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+      </p>
+    </div>
+     <h1 class="equipment-name"><%= @equipment.name %></h1>
+     <h2 class="equipment-price"> <%= "£#{@equipment.price}" %></h2>
+     <p class="equipment-description"> <%= @equipment.description %></p>
+     <div class="p-1">
+       <p><%= link_to "Book Now!", new_equipment_booking_path(@equipment), class:"submit-button equipment-button book-button" %></p>
+     </div>
+   </div>
+ </div>
+
+
 
 </div>
 

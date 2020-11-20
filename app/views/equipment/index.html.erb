@@ -35,7 +35,8 @@
       <% @equipments.each do |equipment| %>
         <div class="card-equipment">
           <div class="card-equipment-image">
-            <%= cl_image_tag("vhfgpfyz8o8oi9qg6a5d", width: 280, height: 180, crop: :fill) %>
+
+            <%= cl_image_tag(equipment.photos.first.key, width: 280, height: 180, crop: :fill) %>
           </div>
           <div class="card-equipment-infos">
             <%= link_to equipment_path(equipment) do %>
@@ -52,8 +53,12 @@
                 <% @review_tally += review.rating %>
               <% end %>
               <% @review_tally = (@review_tally / equipment.reviews.count) if equipment.reviews.count >= 1 %>
-              <p id="stars"><%="⭐️" * @review_tally.round%></p>
-
+              <p id="stars">
+               <% @review_tally.round.times do %>
+                 <i class="fas fa-star"></i>
+               <% end %>
+               </p>
+              <!-- *ngFor=@review_tally.round.html_safe -->
 
             </div>
             <div class="card-right">

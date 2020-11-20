@@ -42,6 +42,11 @@
 
 .booking-confirm {
   display: flex;
+  p {
+    font-family: 'Raleway';
+    color: #145374;
+    font-weight: bold;
+  }
 }
 
 span {
@@ -50,11 +55,22 @@ span {
 
  }
 
+ .booking-status {
+  border-radius: 8px;
+  p {
+    font-family: 'Raleway';
+    color: #145374;
+    font-weight: bold;
+  }
+ }
+
  .decision-1 {
 
   margin-right: 2px;
+  border-radius: 8px;
 
  }
 .decision-2{
 margin-left: 2px;
+border-radius: 8px;
 }
