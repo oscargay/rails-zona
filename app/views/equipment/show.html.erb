@@ -29,7 +29,7 @@
                 <% @review_tally += review.rating %>
               <% end %>
               <% @review_tally = (@review_tally / @equipment.reviews.count) if @equipment.reviews.count >= 1 %>
-              <p id="stars">
+              <p id="stars-special">
                 <% @review_tally.round.times do %>
                 <i class="fas fa-star"></i>
                 <% end %>
@@ -47,8 +47,8 @@
                   <h3 class="text-center mb-2">Book now</h3>
                   <hr width="15%" class="orange-title-bar-3 mb-3">
                    <%= simple_form_for [@equipment, @booking] do |f| %>
-                     <%= f.input :start_date, as: :date %>
-                     <%= f.input :end_date, as: :date %>
+                     <%= f.input :start_date, as: :date, html5: true %>
+                     <%= f.input :end_date, as: :date, html5: true %>
                       <div class="submit-button text-center">
                         <%= f.button :submit, "Book now!" , id: "new-form-submit-button"%>
                       </div>
@@ -64,7 +64,7 @@
         <hr align="left" width="15%" class="orange-title-bar-2 mb-3">
         <% @equipment.reviews.each do |review| %>
           <div class="card-review">
-            <p class="review-content"><%= review.content%> </p>
+            <p class="review-content text-break"><%= review.content%> </p>
             <p class="review-stars">
               <% review.rating.times do %>
               <i class="fas fa-star"></i>
