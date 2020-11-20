@@ -7,7 +7,7 @@
     <div class="col-sm-6 col-lg-4">
       <div class="booking-card">
         <h3><%=link_to booking.equipment.name, booking_path(booking)%></h3>
-        <%= image_tag "Gopro.png", class:"equipment-image"%>
+        <%= cl_image_tag(booking.equipment.photos.first.key, width: 280, height: 180, crop: :fill, class:"equipment-image") %>
         <div class="booking-dates">
         <h6> From <%= booking.start_date.strftime("%b %d, %Y") %> to <%= booking.end_date.strftime("%b %d, %Y") %></h6>
         </div>
@@ -36,7 +36,7 @@
     <div class=" col-sm-6 col-lg-4">
       <div class="booking-card">
         <h3><%= link_to booking.equipment.name, equipment_path(booking.equipment)%></h3>
-        <%= image_tag "Gopro.png", class:"equipment-image"%>
+        <%= cl_image_tag(booking.equipment.photos.first.key, width: 280, height: 180, crop: :fill, class:"equipment-image") %>
           <div class="booking-dates">
             <h6>From: <%= booking.start_date.strftime("%b %d, %Y")  %> to <%= booking.end_date.strftime("%b %d, %Y")  %></h6>
           </div>
