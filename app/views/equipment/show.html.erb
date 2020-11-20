@@ -49,8 +49,8 @@
                    <%= simple_form_for [@equipment, @booking] do |f| %>
                      <%= f.input :start_date, as: :date %>
                      <%= f.input :end_date, as: :date %>
-                      <div class="submit-button text-center new-form-submit-button">
-                        <%= f.button :submit, "Book now!" %>
+                      <div class="submit-button text-center">
+                        <%= f.button :submit, "Book now!" , id: "new-form-submit-button"%>
                       </div>
                     <% end %>
                 </div>
@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="col-lg-12 col-xl-4">
-        <h2 class="mb-4">Reviews</h2>
+        <h2 class=" review-text mb-4">Reviews</h2>
         <hr align="left" width="15%" class="orange-title-bar-2 mb-3">
         <% @equipment.reviews.each do |review| %>
           <div class="card-review">

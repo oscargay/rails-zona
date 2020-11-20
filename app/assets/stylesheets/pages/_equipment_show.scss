@@ -117,6 +117,12 @@ border-radius: 20px;
   height: 100%;
   top: 10%;
   left: 60%;
+  margin-left: 10px;
+  h1, h2 {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color:#00344F;
+  }
 }
 
 .crud-buttons {
@@ -132,6 +138,7 @@ border-radius: 20px;
   line-height: 1.6em;
   margin-right: 25px;
   text-align: justify;
+  color:#155374;
 }
 
 .crud-button {
@@ -154,6 +161,10 @@ border-radius: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
   cursor: pointer;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color:#00344F;
+  border-radius: 8px;
 }
 .buttons {
   position: relative;
@@ -224,11 +235,45 @@ border-radius: 20px;
   padding: 0px;
 }
 
+
+.review-text {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color:#00344F;
+}
+
+.review-content {
+  font-family: 'Raleway';
+  color: #155374;
+}
+
+.content-form {
+  h3 {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color:#00344F;
+  }
+  label {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color:#00344F;
+  }
+}
+
+#new-form-submit-button {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: white;
+    &:hover {
+      color:#00344F;
+    }
+
 #stars {
   flex-grow: 1;
   text-align: right;
   font-size: 10px;
   margin-right: 8px;
+
 }
 
 
