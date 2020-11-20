@@ -1,75 +1,3 @@
-<!--
-<div class="container-1 container">
-
-  <div class="uploaded-by">
-    <%= image_tag "Gopro.png", class:"equipment-image", class:"avatar"%>
-    <p><%="#{@equipment.user.first_name} #{@equipment.user.last_name}"%></p>
-  </div>
-
-  <div class="wrapper-1">
-    <%= image_tag "Gopro.png", class:"equipment-image"%>
-
-    <div class="wrapper-name-description">
-      <div class="eq-name-reviews">
-        <h1><%= @equipment.name %></h1>
-        <% @review_tally = 0 %>
-        <% @equipment.reviews.each do |review| %>
-          <% @review_tally += review.rating %>
-        <% end %>
-        <% @review_tally = (@review_tally / @equipment.reviews.count) if @equipment.reviews.count >= 1 %>
-        <h4><%="⭐️" * @review_tally.round%></h4>
-      </div>
-      <div class="eq-description">
-        <p><%= @equipment.description %></p>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="wrapper-2">
-    <%= image_tag "Gopro.png", class:"equipment-image"%>
-    <div class="equipment-info">
-      <div class="location">
-        <p>Location</p>
-        <p><%= "#{@equipment.location}"%></p>
-    </div>
-      <div class="category">
-        <p>Category</p>
-        <p><%= @equipment.category %>
-      </div>
-      <div class="price">
-        <p>Price</p>
-        <p><%="£#{@equipment.price}"%></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="buttons">
-    <% if @equipment.user == current_user %>
-        <p><%= link_to "Back", equipment_index_path %></p>
-        <p><%= link_to "Edit equipment", edit_equipment_path(@equipment)%></p>
-        <p><%= link_to "Delete equipment", equipment_path(@equipment), method: :delete, data: { confirm: "Are you sure?"}%></p>
-        <% else %>
-          <p><%= link_to "Book Now!", new_equipment_booking_path(@equipment), class:"btn submit-button" %></p>
-    <% end %>
-  </div>
-
-  <p><%= link_to "Leave a review", new_equipment_review_path(@equipment) unless @equipment.user == current_user%></p>
-  <ul class="list-group">
-  <% @equipment.reviews.each do |review| %>
-    <li class="list-group-item"><%= "⭐️"*review.rating%>  <%= review.content%> <%= link_to "Remove", review_path(review), method: :delete, data: {confirm: "Are you sure?"} if @equipment.user == current_user %></li>
-  <% end %>
-</ul>
-</div>
-
-
- -->
-
-
-
-
-
-
 <div class="main-container">
   <div class="row">
     <div class="col-lg-12 col-xl-8">
@@ -134,44 +62,9 @@
           <div class="card-review">
             <p class="review-content"><%= review.content%> </p>
             <p class="review-stars"><%= "⭐️"*review.rating%></p>
-            <!-- <%= link_to "Remove", review_path(review), method: :delete, data: {confirm: "Are you sure?"} if @equipment.user == current_user %> -->
           </div>
           <% end %>
       </div>
   </div>
-
-   <div class="equipment-info">
-    <div class="top-bar d-flex">
-     <p class="equipment-category"><%= @equipment.category %></p>
-     <% @review_tally = 0 %>
-     <% @equipment.reviews.each do |review| %>
-       <% @review_tally += review.rating %>
-     <% end %>
-     <% @review_tally = (@review_tally / @equipment.reviews.count) if @equipment.reviews.count >= 1 %>
-     <p id="stars">
-      <% @review_tally.round.times do %>
-        <i class="fas fa-star"></i>
-      <% end %>
-      </p>
-    </div>
-     <h1 class="equipment-name"><%= @equipment.name %></h1>
-     <h2 class="equipment-price"> <%= "£#{@equipment.price}" %></h2>
-     <p class="equipment-description"> <%= @equipment.description %></p>
-     <div class="p-1">
-       <p><%= link_to "Book Now!", new_equipment_booking_path(@equipment), class:"submit-button equipment-button book-button" %></p>
-     </div>
-   </div>
- </div>
-
-
-
 </div>
-
-   <!--          <ul class="list-group">
-            <% @equipment.reviews.each do |review| %>
-              <li class="list-group-item"><%= "⭐️"*review.rating%>  <%= review.content%> <%= link_to "Remove", review_path(review), method: :delete, data: {confirm: "Are you sure?"} if @equipment.user == current_user %></li>
-            <% end %>
-          </ul>
-
- -->
 
