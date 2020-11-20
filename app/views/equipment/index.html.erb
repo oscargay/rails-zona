@@ -60,13 +60,12 @@
 
 
               <div class="card-equipment-infos">
-
                   <span class="badge badge-primary"><%= "£#{equipment.price}/day"  %></span>
-
-
-                  <%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button" unless equipment.user == current_user %>
-
-
+                  <% unless equipment.user == current_user %>
+                    <%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button"  %>
+                  <% else %>
+                    <%= link_to "Rent now!", new_equipment_booking_path(equipment), class:"btn submit-button", style: "opacity: 0; pointer-events: none;"  %>
+                  <% end %>
               </div>
 
             <% end %>
