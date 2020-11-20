@@ -1,6 +1,3 @@
-
-
-
 <div class="container">
   <div class="booking-title">
     <h1><span>Bookings to Confirm</span></h1>
@@ -16,6 +13,11 @@
         </div>
         <div class="booking-confirm">
         <%= link_to_if(booking.status == "Pending", "Accept booking", booking_path(booking, :booking => { status: "Accepted" }), :method => :put, :confirm => "Sure?", class: "btn btn-success decision-1"){} %> <%= link_to_if(booking.status == "Pending","Decline booking", booking_path(booking, :booking => { status: "Declined" }), :method => :put, :confirm => "Sure?", class: "btn btn-danger decision-2"){} %>
+        <% if booking.status == "Accepted" %>
+        <p>✅ You accepted this booking</p>
+        <% elsif booking.status =="Declined" %>
+        <p>🛑 You declined this Booking</p>
+        <% end %>
         </div>
         </div>
       </div>
@@ -38,13 +40,17 @@
           <div class="booking-dates">
             <h6>From: <%= booking.start_date.strftime("%b %d, %Y")  %> to <%= booking.end_date.strftime("%b %d, %Y")  %></h6>
           </div>
-          <div class="booking-status btn btn-warning">
-            <%= booking.status%>
+          <div class="booking-status">
+          <% if booking.status == "Accepted" %>
+               <p>✅ Your booking was accepted !!</p>
+            <% elsif booking.status == "Declined" %>
+                <p>🛑 Your booking was declined :(</p>
+                <% elsif booking.status == "Pending" %>
+                <p>⏳ Waiting for confirmation</p>
+            <% end %>
           </div>
       </div>
     </div>
     <% end %>
     </div>
   </div>
-
-
